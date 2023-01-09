@@ -1,19 +1,26 @@
 package tacos;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
-import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 import lombok.Data;
 
 @Data
-public class TacoOrder {
+@Table
+public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     private Long id;
 
     private Date placedAt;
